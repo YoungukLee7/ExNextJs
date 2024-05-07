@@ -1,13 +1,12 @@
 // 서버 컴포넌트
 
 import Link from "next/link";
+import { API_URL } from "../constants";
 
 // 메타 데이터 사용 가능
 export const metadata = {
     title: "Home",
 };
-
-export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
 async function getMovies() {
     // 로딩 확인을 위해 일부러 시간 걸음 
