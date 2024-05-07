@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
+import LoadingComponent from "../../../loading_component";
 
 // url에 있는 id 가져오기
 interface IParams {
@@ -22,7 +23,7 @@ export default async function MovieDetailPage({params: {id}}: IParams) {
                 <MovieInfo id = {id}/>
             </Suspense>
             <h3>Movie videos</h3>
-            <Suspense fallback={<h1>Loading Movie video</h1>}>
+            <Suspense fallback={<LoadingComponent message="Loading Movie Video Component"/>}>
                 <MovieVideos id = {id}/>
             </Suspense>
         </div>
