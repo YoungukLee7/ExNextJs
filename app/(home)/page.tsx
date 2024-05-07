@@ -1,7 +1,8 @@
 // 서버 컴포넌트
 
-import Link from "next/link";
 import { API_URL } from "../constants";
+import Movie from "../../components/movie";
+import styles from "../../styles/home.module.css";
 
 // 메타 데이터 사용 가능
 export const metadata = {
@@ -19,8 +20,10 @@ async function getMovies() {
 export default async function HomePage() {
    const movies = await getMovies();
     return (
-        <div>
-            {movies.map(movie => <li key = {movie.id}><Link href = {`/movies/${movie.id}`}>{movie.title}</Link></li>)};
+        <div className={styles.container}>
+            {movies.map((movie) => (
+                <Movie key={movie.id} id={movie.id} poster_path={movie.poster_path} title={movie.title} />
+            ))}
         </div>
     ); 
 }
