@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "../styles/movie.module.css";
-import { useRouter } from "next/router";
 
 interface IMovieProps{
     title: string;
@@ -11,13 +11,16 @@ interface IMovieProps{
 }
 
 export default function Movie({title, id, poster_path}: IMovieProps){
+    
+    // 아래 return하는 div 안에 Link가 제목에만 적용되어 이미지를 클릭해도 아무일도 발생하지 않는 상황인데
+    // router를 사용하여 onClick 이벤트를 이용하면 이미지를 클릭해도 링크로 이동시킬 수 있다.
     const router = useRouter();
     const onclick = () => {
         router.push(`/movies/${id}`);
     };
 
     return(
-        <div className="{styles.movie}">
+        <div className={styles.movie}>
             <img src={poster_path} alt={title} onClick={onclick}></img>
             <Link href={`/movies/${id}`}>{title}</Link>
         </div>

@@ -18,12 +18,10 @@ export async function generateMetadata({params:{id}} : IParams) {
 export default async function MovieDetailPage({params: {id}}: IParams) {
         return (
         <div>
-            <h3>Movie detail</h3>
-            <Suspense fallback={<h1>Loading Movie info</h1>}>
+            <Suspense fallback={<h1>Loading Movie info No Component</h1>}>
                 <MovieInfo id = {id}/>
             </Suspense>
-            <h3>Movie videos</h3>
-            <Suspense fallback={<LoadingComponent message="Loading Movie Video Component"/>}>
+            <Suspense fallback={<LoadingComponent message="Loading Movie Video Yes Component"/>}>
                 <MovieVideos id = {id}/>
             </Suspense>
         </div>
