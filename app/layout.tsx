@@ -7,7 +7,7 @@ import { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     template: "%s | Next Movies", // %s: 각 페이지 title
-    default: "Next Movies", // 기본값
+    default: "Next Movies", // 위에 해당하는 값이 없을 경우 사용
   },
   description: 'The Best Movies',
 }
